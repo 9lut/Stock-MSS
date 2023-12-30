@@ -1,6 +1,6 @@
 //ฟังก์ชันหลักที่ใช้ Fetch API เพื่อดึงข้อมูลจาก URL
 function fetchDataAndPopulateTable() {
-    let url = 'https://script.google.com/macros/s/AKfycbyvLCkU0uRrWFrukTSANKowu2TbL0MM6O5Fl6iv_-4T4I0OqNRu_sOieULJEj0urCpJjw/exec';
+    let url = 'https://script.google.com/macros/s/AKfycbxbhYC1Q_jfll8dmokSqegzHQ4UjZ5lsL5rsqqNCuaAdhgoKmK5ngyLGLcCmOrsOL-f/exec';
     fetch(url)
         .then((response) => response.json())
         .then(json => {
