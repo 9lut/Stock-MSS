@@ -16,12 +16,13 @@ function fetchDataAndPopulateTable() {
         .catch(error => {
             console.log("Error fetching data:", error);
         });
+        const body = document.querySelector('body');
+        body.classList.remove('dark-mode');
 }
 //ฟังก์ชันนำ API มาแสดงในตาราง
 function populateTable(data) {
     let table = $('#example').DataTable();
     table.clear().draw();
-    
     data.forEach(item => {
         table.row.add([
             item.ID,
@@ -40,6 +41,39 @@ $(document).ready(function() {
         $("#example").DataTable({
             responsive: true
         });
+        
     }
 });
 
+// ฟังก์ชันสำหรับเปลี่ยนโหมด
+function changeMode() {
+    const select = document.getElementById('modeSelect');
+    const selectedMode = select.value;
+    const body = document.body;
+
+    // Save the selected mode to localStorage
+    localStorage.setItem('selectedMode', selectedMode);
+
+    // Call DarkMode function to apply selected mode
+    DarkMode();
+
+    // Set the selected value in modeSelect to stay unchanged
+    select.value = localStorage.getItem('selectedMode');
+}
+
+// ฟังก์ชันสำหรับเปลี่ยนโหมดกลางคืน
+function DarkMode() {
+    const savedMode = localStorage.getItem('selectedMode');
+    const body = document.querySelector('body');
+    if (savedMode === 'night') {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+    }
+}
+
+// ฟังก์ชันทำงานเมื่อ HTML ได้โหลดเสร็จสมบูรณ์
+document.addEventListener('DOMContentLoaded', function () {
+    DarkMode();
+    document.getElementById('modeSelect').value = localStorage.getItem('selectedMode');
+});

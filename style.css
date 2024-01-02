@@ -1,8 +1,32 @@
 body{
     text-align: center;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;   
 }
 .container {
     overflow-x: auto;
     text-align: center;
+}
+
+/* เพิ่มโหมดกลางคืน */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* ปรับสีของตาราง DataTable ในโหมดมืด */
+body.dark-mode table.dataTable {
+    color: #fff;
+    background-color: #444;
+}
+
+/* ปรับสีของหัวตาราง DataTable ในโหมดมืด */
+body.dark-mode table.dataTable thead th {
+    color: #fff;
+    background-color: #333;
+}
+
+/* ปรับสีของแถวคู่ในตาราง DataTable ในโหมดมืด */
+body.dark-mode table.dataTable td {
+    color: #fff;
+    background-color: #666;
 }
