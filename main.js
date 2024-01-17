@@ -39,7 +39,11 @@ $(document).ready(function() {
     if (!$.fn.dataTable.isDataTable('#example')) {
         // ใช้ DataTables library และ responsive สำหรับตาราง
         $("#example").DataTable({
-            responsive: true
+            responsive: true,
+            //ภาษาไทย
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Thai.json"
+            }
         });
         
     }
